@@ -1,7 +1,16 @@
+import { BrowserRouter, Route, RouterProvider, Routes } from "react-router-dom"
+import { AppRouter } from "./routes/AppRouter"
+
+
+
+
+
 
 function App() {
   return (
-    <h1 className="text-blue-600">Inicio Proyecto</h1>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   )
 }
 
