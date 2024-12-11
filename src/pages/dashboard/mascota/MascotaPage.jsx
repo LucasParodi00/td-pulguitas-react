@@ -1,29 +1,32 @@
-import { useState } from "react"
-import { FormularioNuevaCategoria } from "../../../components/features/dashboard/categoria/FormularioNuevaCategoria"
-import { ListaCategoria } from "../../../components/features/dashboard/categoria/ListaCategoria"
 import { useCallback } from "react";
+import { useState } from "react"
+import { FormularioNuevaMascota } from "../../../components/features/dashboard/mascota/FormularioNuevaMascota";
+import { ListaMascota } from "../../../components/features/dashboard/mascota/ListaMascota";
 
 
-export const CategoriaPage = () => {
+export const MascotaPage = () => {
     const [reload, setReload] = useState(false);
-    const [categoria, setCategoria] = useState(null);
+    const [mascota, setMascota] = useState(null);
 
     const handleReload = useCallback(() => setReload(prev => !prev), []);
 
     const handleEdit = useCallback((item) => {
-        setCategoria(item);
+        setMascota(item);
     }, []);
 
     return (
         <div className="flex flex-col gap-10 xl:flex-row lg:px-5 mt-10">
-            <FormularioNuevaCategoria
+            <FormularioNuevaMascota
                 handleReload={handleReload}
-                categoria={categoria}
+                mascota={mascota}
             />
-            <ListaCategoria
+
+            <ListaMascota
                 reload={reload}
                 handleEdit={handleEdit}
             />
+
         </div>
     )
+
 }

@@ -2,7 +2,7 @@
 
 export const categoryValidation = {
     nombre: {
-        requerid: 'El nombre es obligatorio',
+        required: 'El nombre es obligatorio',
         maxLenght: {
             value: 100,
             message: 'Maximo 100 caracteres'

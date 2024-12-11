@@ -20,7 +20,12 @@ export default {
         'rojo-coral': '#FF6F61',
         //hovers
         'azul-palido': '#7abdff',
-        'verde-suave': '#94cb98'
+        'verde-suave': '#94cb98',
+        // Web
+        'body': '#33678A',
+        'component': '#78A6C8',
+        'semi-blanco': '#E9EEF2',
+        'naranja-web': '#E65C4F'
 
       },
       boxShadow: {

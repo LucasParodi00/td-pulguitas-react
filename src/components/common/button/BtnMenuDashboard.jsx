@@ -7,7 +7,7 @@ export const BtnMenuDashboard = ({ referencia = '#', icono = <MousePointerClick 
     return (
         <Link
             to={referencia}
-            className={`bg-naranja-vivo flex gap-4 items-center justify-center lg:text-xl ${style}`}
+            className={`bg-naranja-vivo flex gap-4 items-center justify-center rounded-md lg:text-xl ${style}`}
         >
             {icono}
             {texto}

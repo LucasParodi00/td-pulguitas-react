@@ -7,7 +7,7 @@ export const MenuProducto = () => {
         <div className="grid grid-cols-4 gap-2 h-24 py-2 mb-2">
             <BtnMenuDashboard
                 texto="Lista"
-                referencia="lista"
+                referencia="/dashboard/productos"
                 icono={<ClipboardList size={32} />}
                 style={'col-span-2'}
             />

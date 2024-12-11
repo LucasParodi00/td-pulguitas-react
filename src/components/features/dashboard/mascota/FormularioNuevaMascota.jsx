@@ -1,29 +1,29 @@
-import { useForm } from "react-hook-form"
-import { SendButton } from "../../../common/button/SendButton"
-import { InputDashboard } from "../../../common/inputs/InputDashboard"
-import { LayoutInternoDashboard } from "../../../layout/LayoutInternoDashboard"
-import { categoryValidation } from "../../../../utils/validations/categoryValidation"
-import { SelectedDashboard } from "../../../common/inputs/SelectedDashboard"
-import { estadoOption } from "../../../../utils/options/estadoOption"
-import { categoryConverter } from "../../../../utils/helper/categoryConverter"
-import { setCategoria, updateCategoria } from "../../../../services/api/categoriaAPi"
-import { useEffect } from "react"
-import { useCallback } from "react"
+import { useEffect } from "react";
+import { useCallback } from "react";
 import { useState } from "react"
-import { RotateCcw } from "lucide-react"
+import { useForm } from "react-hook-form";
+import { categoryConverter } from "../../../../utils/helper/categoryConverter";
+import { LayoutInternoDashboard } from "../../../layout/LayoutInternoDashboard";
+import { RotateCcw } from "lucide-react";
+import { InputDashboard } from "../../../common/inputs/InputDashboard";
+import { SelectedDashboard } from "../../../common/inputs/SelectedDashboard";
+import { categoryValidation } from "../../../../utils/validations/categoryValidation";
+import { estadoOption } from "../../../../utils/options/estadoOption";
+import { SendButton } from "../../../common/button/SendButton";
+import { useFetchApi } from "../../../../hook/useFetchApi";
 
-
-export const FormularioNuevaCategoria = ({ handleReload = null, categoria = null }) => {
+export const FormularioNuevaMascota = ({ handleReload = null, mascota = null }) => {
+    const { fetchDatas } = useFetchApi('mascota');
     const [isEdition, setIsEdition] = useState(false);
     const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm();
 
     useEffect(() => {
-        if (categoria) {
+        if (mascota) {
             setIsEdition(true);
-            setValue('nombre', categoria.nombre)
-            setValue('estado', categoria.estado)
+            setValue('nombre', mascota.nombre)
+            setValue('estado', mascota.estado)
         }
-    }, [categoria]);
+    }, [mascota]);
 
     const reloadForm = () => {
         handleReload();
@@ -35,16 +35,18 @@ export const FormularioNuevaCategoria = ({ handleReload = null, categoria = null
         const newData = categoryConverter(data);
         try {
             if (isEdition) {
-                await updateCategoria(newData, parseInt(categoria?.id_categoria));
+                await fetchDatas({ method: 'PUT', body: newData, id: parseInt(mascota.id_mascota) });
             } else {
-                await setCategoria(newData);
+                await fetchDatas({ method: 'POST', body: newData });
             }
         } catch (err) {
             console.log(err);
         } finally {
+            console.log('entra');
+
             reloadForm();
         }
-    }, [isEdition, categoria, handleReload, reset]);
+    }, [isEdition, mascota, handleReload, reset]);
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 xl:w-1/2">
@@ -62,7 +64,7 @@ export const FormularioNuevaCategoria = ({ handleReload = null, categoria = null
                     </div>
 
                     <InputDashboard
-                        placeholder={'Nombre de la categoria'}
+                        placeholder={'Nombre del animal'}
                         label={'Nombre'}
                         {...register('nombre', categoryValidation.nombre)}
                         error={errors.nombre?.message}
@@ -75,7 +77,7 @@ export const FormularioNuevaCategoria = ({ handleReload = null, categoria = null
                     />
                 </div>
                 <SendButton
-                    texto={`${isEdition ? 'Editar Categoria' : 'Nueva Categoria'}`}
+                    texto={`${isEdition ? 'Editar Mascota' : 'Nueva Mascota'}`}
                 />
             </LayoutInternoDashboard>
         </form>

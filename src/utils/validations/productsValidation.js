@@ -15,7 +15,7 @@ export const productsValidation = {
             message: 'Debe ser menor a 100 caracteres'
         },
         minLength: {
-            value: 5,
+            value: 3,
             message: 'Debeb ser mayor a 5 caracteres'
         }
     },

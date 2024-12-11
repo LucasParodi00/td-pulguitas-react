@@ -7,24 +7,43 @@ import { estadoOption } from "../../../../utils/options/estadoOption";
 import { TextAreaDashboard } from "../../../common/inputs/TextAreaDashboard";
 import { LayoutInternoDashboard } from "../../../layout/LayoutInternoDashboard";
 import { PresentacionesProducto } from "./PresentacionesProducto";
+import { ImagenProducto } from "./ImagenProducto";
+import { productConverter } from "../../../../utils/helper/productConverter";
+import { setProducto, updateProducto } from "../../../../services/api/productoApoi";
+import { useState } from "react";
+import { useEffect } from "react";
 
-const opciones = [
-    { value: 1, text: 'Hola' },
-    { value: 2, text: 'Chau' },
-]
 
-export const FormularioNuevoProducto = () => {
+export const FormularioNuevoProducto = ({ categoryOptions = [], productoEdit = null }) => {
+    const [isEdition, setIsEdition] = useState(false);
     const methods = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = methods;
 
-    const { register, handleSubmit, formState: { errors } } = methods;
+    useEffect(() => {
+        if (productoEdit) {
+            setIsEdition(true);
+            reset(productoEdit);
+        }
+    }, [productoEdit]);
 
     const onSubmit = async (data) => {
         console.log(data);
+        const newData = productConverter(data);
+        try {
+            if (isEdition) {
+                await updateProducto(parseInt(productoEdit.id), newData);
+            } else {
+                await setProducto(newData);
+            }
+        } catch (err) {
+            console.log(err);
+
+        }
     }
 
     return (
         <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 pb-10">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 lg:grid grid-cols-2">
                 <LayoutInternoDashboard>
 
                     <InputDashboard
@@ -36,8 +55,8 @@ export const FormularioNuevoProducto = () => {
 
                     <SelectedDashboard
                         label={'Categoria'}
-                        options={opciones}
-                        {...register('categoria', productsValidation.id_categoria)}
+                        options={categoryOptions}
+                        {...register('id_categoria', productsValidation.id_categoria)}
                         error={errors.id_categoria?.message}
                     />
 
@@ -55,16 +74,19 @@ export const FormularioNuevoProducto = () => {
 
                 </LayoutInternoDashboard>
 
-
                 <LayoutInternoDashboard>
-
-                    <PresentacionesProducto />
-
+                    <ImagenProducto />
                 </LayoutInternoDashboard>
 
-                <SendButton
-                    texto="Cargar Producto"
-                />
+                <div className="col-span-2 flex flex-col gap-5 mb-2">
+                    <LayoutInternoDashboard>
+                        <PresentacionesProducto />
+                    </LayoutInternoDashboard>
+
+                    <SendButton
+                        texto="Cargar Producto"
+                    />
+                </div>
             </form>
         </FormProvider>
     )
