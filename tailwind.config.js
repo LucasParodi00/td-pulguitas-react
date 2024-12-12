@@ -23,9 +23,11 @@ export default {
         'verde-suave': '#94cb98',
         // Web
         'body': '#33678A',
+        'navbar-web':'#4A81A1',
         'component': '#78A6C8',
         'semi-blanco': '#E9EEF2',
-        'naranja-web': '#E65C4F'
+        'naranja-web': '#FF6502',
+        // 'naranja-web': '#E65C4F'
 
       },
       boxShadow: {
