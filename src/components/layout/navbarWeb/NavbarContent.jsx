@@ -30,7 +30,7 @@ export const NavbarContent = ({ children }) => {
     }, [])
 
     return (
-        <div className="relative bg-[#82B1C4] ">
+        <div className="bg-navbar-web sticky top-0 right-0 left-0 z-20">
             <div className="lg:flex justify-between max-w-[1200px] m-auto items-center">
                 <div className="flex p-2 justify-between">
                     <NavbarLogo />

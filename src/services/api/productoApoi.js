@@ -14,9 +14,9 @@ export const setProducto = async (producto) => {
         body: producto
     });
 
-    const {message } = await handleError(response);
+    const {message, data } = await handleError(response);
 
-    return {producto: message}
+    return {message: message, producto: data}
 }
 
 
@@ -30,7 +30,7 @@ export const updateProducto = async (id, producto) => {
         body: producto
     });
 
-    const { message } = await handleError(response);
+    const { message, data} = await handleError(response);
 
-    return {producto: message}
+    return {message: message, producto: data}
 }

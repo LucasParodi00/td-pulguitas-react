@@ -10,7 +10,7 @@ export const NavbarLogo = () => {
                 <img
                     src="/logo.png"
                     alt=""
-                    className="w-full object-contain h-16 lg:h-20 "
+                    className="w-full object-contain h-16"
                 />
             </Link>
         </div>

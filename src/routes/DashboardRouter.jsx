@@ -12,7 +12,7 @@ export const DashboardRouter = () => {
     return (
         <LayaoutDashboard>
             <NavbarDashboardPage />
-            <div className="col-span-9 lg:px-5 h-screen overflow-scroll scroll-oculto">
+            <div className="col-span-9 lg:px-5 h-screen overflow-scroll scroll-oculto text-black">
                 <Routes>
                     <Route path="productos/*" element={<MenuProductoPage />} />
                     <Route path="categorias/*" element={<CategoriaPage />} />

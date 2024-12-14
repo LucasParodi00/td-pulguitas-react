@@ -12,13 +12,14 @@ import { productConverter } from "../../../../utils/helper/productConverter";
 import { setProducto, updateProducto } from "../../../../services/api/productoApoi";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 export const FormularioNuevoProducto = ({ categoryOptions = [], productoEdit = null }) => {
     const [isEdition, setIsEdition] = useState(false);
     const methods = useForm();
     const { register, handleSubmit, reset, formState: { errors } } = methods;
-
+    const navigation = useNavigate();
     useEffect(() => {
         if (productoEdit) {
             setIsEdition(true);
@@ -32,12 +33,14 @@ export const FormularioNuevoProducto = ({ categoryOptions = [], productoEdit = n
         try {
             if (isEdition) {
                 await updateProducto(parseInt(productoEdit.id), newData);
+                navigation(`/dashboard/productos`);
             } else {
-                await setProducto(newData);
+                const { data } = await setProducto(newData);
+                console.log(data);
+                navigation(`/dashboard/productos`);
             }
         } catch (err) {
             console.log(err);
-
         }
     }
 

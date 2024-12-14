@@ -23,7 +23,7 @@ export const Carrusel = ({ imagenes = [], autoPlay = false, botones = true }) =>
         if (autoPlay || !botones) {
             const intervalo = setInterval(() => {
                 seleccionarImagen(selectedIndex, imagenes);
-            }, 2000);
+            }, 5000);
             return () => clearInterval(intervalo);
         }
     })

@@ -4,9 +4,9 @@ import { getBaseUrl, getHeaders } from "../services/config";
 import { useConstructUrl } from "../services/useConstructUrl";
 import { handleError } from "../services/handleError";
 
-
+ 
 export const useFetchApi = (resource) => {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false); 
     const [error, setError] = useState(null);
 
     const fetchDatas = useCallback ( async ({ method = 'GET', body = null, patch = '', id = '', querys = ''}) => {

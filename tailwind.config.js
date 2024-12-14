@@ -23,15 +23,26 @@ export default {
         'verde-suave': '#94cb98',
         // Web
         'body': '#33678A',
-        'navbar-web':'#4A81A1',
+        'navbar-web':'#1E1E1E',
+        // 'navbar-web':'#4A81A1',
         'component': '#78A6C8',
         'semi-blanco': '#E9EEF2',
         'naranja-web': '#FF6502',
+        'verde-suave': '#009999',
         // 'naranja-web': '#E65C4F'
 
       },
       boxShadow: {
-        'card': '0 0px 6px 7px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+        'card': '0 0px 6px 7px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)', 
+        'button': '0 10px 20px 7px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'marca': '0 0px 10px 2px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+      },
+      dropShadow: {
+        '2xl': '0px 0px 60px ',
+        '4xl': [
+            '0 35px 35px rgba(0, 0, 0, 0.25)',
+            '0 45px 65px rgba(0, 0, 0, 0.15)'
+        ]
       }
     },
   },
