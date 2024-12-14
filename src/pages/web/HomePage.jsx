@@ -57,7 +57,6 @@ export const HomePage = () => {
             <ContainerWeb>
                 <SeccionBlogs />
             </ContainerWeb>
-
         </>
     )
 }
