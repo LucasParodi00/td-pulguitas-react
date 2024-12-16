@@ -22,6 +22,7 @@ export const NavbarWeb = () => {
             <NavbarItem
                 nombre={'Nosotros'}
                 icono={<Building2 />}
+                referencia="/nosotros"
             />
 
             <NavbarItem

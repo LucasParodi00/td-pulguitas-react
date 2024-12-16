@@ -7,7 +7,7 @@ import { Instagram } from "lucide-react"
 
 export const CardNovedades = () => {
     return (
-        <div className="bg-[#DEE6E9] py-10 px-2 my-10 lg:h-[33em] flex">
+        <div className="bg-[#DEE6E9] py-10 px-2 my-10 lg:h-[33em] flex rounded-xl">
             <div className=" max-w-[1500px] m-auto sm:grid grid-cols-3 gap-6 lg:gap-20 justify-center items-center">
                 <div>
                     <img

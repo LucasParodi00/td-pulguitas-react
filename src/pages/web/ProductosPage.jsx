@@ -7,6 +7,8 @@ import { ContainerWeb } from "../../components/layout/ContainerWeb";
 import { importLogos } from "../../utils/helper/importMarcas";
 import { CarruselInfinito } from "../../components/common/carrusel/CarruselInfinito";
 import { useCallback } from "react";
+import { Route, Routes } from "react-router-dom";
+import { VerProductoWeb } from "../../components/features/web/productos/VerProductoWeb";
 
 
 
@@ -68,9 +70,17 @@ export const ProductosWebPage = () => {
                         />
                     </div>
                     <main className="col-span-10">
-                        <SectionProductsWeb
+                        {/* <SectionProductsWeb
                             fetchDataApi={fetchData}
-                        />
+                        /> */}
+                        <Routes>
+                            <Route path="/" element={
+                                <SectionProductsWeb
+                                    fetchDataApi={fetchData}
+                                />}
+                            />
+                            <Route path="/:id" element={<VerProductoWeb />} />
+                        </Routes>
                     </main>
                 </div>
             </ContainerWeb>

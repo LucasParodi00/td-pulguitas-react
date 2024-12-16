@@ -17,17 +17,11 @@ export const CardProducto = ({ nombreProducto = '', presentaciones = [], precio 
                         src={urlImagen}
                         alt={`Pulguitas - PetShop - ${nombreProducto}`}
                         className="object-contain w-full h-64 "
+                        loading="lazy"
                     />
                 </div>
                 <div className="text-center">
                     <h4 className="text-xs">{nombreProducto}</h4>
-                    {/* <div className="flex justify-center gap-2 mt-2">
-                    {
-                        presentaciones?.map((item) => (
-                            <span className="bg-verde-suave py-1 px-2 rounded-md">{item.nombre}</span>
-                        ))
-                    }
-                </div> */}
                 </div>
             </div>
         </Link>

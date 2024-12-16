@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 
@@ -30,6 +31,7 @@ export const Footer = () => {
 
 const lista = ['Inicio', 'Productos', 'Nosotros', 'Ubicacion', 'Contacto'];
 const listaRecursos = ['Reclamos', 'Trabaja con Nosotros', 'Recursos Humanos', 'Blog', 'Atencion al Publico']
+
 const FooterLista = ({ items = [] }) => {
     return (
         <div className="text-center border-y py-5 border-gray-600 sm:border-x sm:border-y-0 border sm:px-10 lg:text-lg font-extralight">
@@ -37,7 +39,7 @@ const FooterLista = ({ items = [] }) => {
 
                 {
                     items?.map((item, index) => (
-                        <li key={index} className="hover:text-blue-300">{item}</li>
+                        <Link to={`/${item}`} key={index}><li className="hover:text-blue-300">{item}</li></Link>
                     ))
                 }
             </ul>
