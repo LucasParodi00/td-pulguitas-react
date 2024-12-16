@@ -12,19 +12,18 @@ export const NavbarWeb = () => {
             <NavbarItem
                 nombre={'Inicio'}
                 icono={<House />}
+                referencia="/"
             />
             <NavbarItem
                 nombre={'Productos'}
                 icono={<Box />}
+                referencia="/productos"
             />
             <NavbarItem
                 nombre={'Nosotros'}
                 icono={<Building2 />}
             />
-            <NavbarItem
-                nombre={'Ubicacion'}
-                icono={<MapPinHouse />}
-            />
+
             <NavbarItem
                 nombre={'Contacto'}
                 icono={<Contact />}

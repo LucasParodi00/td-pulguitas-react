@@ -10,6 +10,7 @@ import { CardNovedades } from "../../components/common/card/CardNovedades"
 import { CarruselInfinito } from "../../components/common/carrusel/CarruselInfinito"
 import { MetodosPago } from "../../components/features/web/MetodosPago"
 import { SeccionBlogs } from "../../components/features/web/blog/SeccionBlogs"
+import { importLogos } from "../../utils/helper/importMarcas"
 
 const imagenes = ['http://localhost:5173/banner-lg-1.png', 'http://localhost:5173/banner-lg-2.png']
 const marcas = ['http://localhost:5173/marcas/1.png']
@@ -22,19 +23,10 @@ export const HomePage = () => {
     const fetchData = async () => {
         const { data: { productos } } = await fetchDatas({ querys: { limit: 10 } });
         setProductos(productos);
+        setLogos(await importLogos())
     }
     useEffect(() => {
         fetchData();
-        const importLogos = async () => {
-            const LogoModules = import.meta.glob('/public/marcas/*.png');
-            const LogoImports = await Promise.all(
-                Object.keys(LogoModules).map(path => LogoModules[path]())
-            );
-
-            const LogoUrls = LogoImports.map(module => module.default);
-            setLogos(LogoUrls);
-        }
-        importLogos();
     }, [])
     return (
         <>

@@ -16,29 +16,27 @@ export const Paginator = ({ currentPage = 1, numberOfPage = 1, lastPage = null, 
     }
 
     return (
-        <div>
-            <div className="flex gap-5 justify-center py-2">
-                <button
-                    className="bg-verde-menta p-1 rounded-sm text-white disabled:bg-gray-300"
-                    onClick={lastPage}
-                    disabled={currentPage === 1}
-                >
-                    <MoveLeft />
-                </button>
-                <span
-                    className="bg-verde-suave px-4 flex justify-center items-center rounded-sm font-semibold "
-                >
-                    {currentPage} de {numberOfPage}
-                </span>
+        <div className="flex gap-5 justify-center py-2 h-full">
+            <button
+                className="bg-verde-menta p-1 rounded-sm text-white disabled:bg-gray-300"
+                onClick={lastPage}
+                disabled={currentPage === 1}
+            >
+                <MoveLeft />
+            </button>
+            <span
+                className="bg-verde-suave px-4 flex justify-center items-center rounded-sm font-semibold "
+            >
+                {currentPage} de {numberOfPage}
+            </span>
 
-                <button
-                    className="bg-verde-menta p-1 rounded-sm text-white disabled:bg-gray-300"
-                    onClick={nextPage}
-                    disabled={currentPage === numberOfPage}
-                >
-                    <MoveRight />
-                </button>
-            </div>
+            <button
+                className="bg-verde-menta p-1 rounded-sm text-white disabled:bg-gray-300"
+                onClick={nextPage}
+                disabled={currentPage === numberOfPage}
+            >
+                <MoveRight />
+            </button>
         </div>
     )
 }

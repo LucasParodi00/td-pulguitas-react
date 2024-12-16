@@ -15,6 +15,8 @@ export const useFetchApi = (resource) => {
         try {
             const baseUrl = getBaseUrl(resource);
             const url = useConstructUrl(baseUrl, `${patch}/${id}`, querys);
+            console.log(url);
+            
             const response = await fetch (url, {
                 method,
                 headers: getHeaders(),
