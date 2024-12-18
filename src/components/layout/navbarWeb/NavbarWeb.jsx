@@ -41,6 +41,7 @@ export const NavbarWeb = () => {
             <NavbarItem
                 nombre={'Contacto'}
                 icono={<Contact />}
+                referencia="/contacto"
             />
         </NavbarContent >
     )

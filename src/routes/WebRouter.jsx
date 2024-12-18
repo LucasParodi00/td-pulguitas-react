@@ -6,6 +6,7 @@ import { ProductosWebPage } from "../pages/web/ProductosPage"
 import { NosotrosPage } from "../pages/web/NosotrosPage"
 import { CartRouters } from "./CartRouter"
 import { CarritoPage } from "../pages/web/CarritoPage"
+import { ContactoPage } from "../pages/web/ContactoPage"
 
 
 
@@ -18,6 +19,7 @@ export const WebRouter = () => {
                 <Route path="/productos/*" element={<ProductosWebPage />} />
                 <Route path="/nosotros" element={<NosotrosPage />} />
                 <Route path="/inicio" element={<HomePage />} />
+                <Route path="/contacto" element={<ContactoPage />} />
                 <Route path="/carrito/*" element={
                     <CartRouters>
                         <Routes>

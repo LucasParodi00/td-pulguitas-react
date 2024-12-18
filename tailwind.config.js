@@ -29,6 +29,7 @@ export default {
         'semi-blanco': '#E9EEF2',
         'naranja-web': '#FF6502',
         'verde-suave': '#009999',
+        'gris-suave': '#DEE6E9'
         // 'naranja-web': '#E65C4F'
 
       },
