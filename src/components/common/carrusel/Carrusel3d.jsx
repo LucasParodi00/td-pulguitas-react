@@ -6,8 +6,6 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
 export const Carrusel3d = ({ sliders = [] }) => {
-    console.log(sliders);
-
     const generateRandomNumber = () => {
         const min = 5;
         const max = 30;
@@ -44,7 +42,7 @@ export const Carrusel3d = ({ sliders = [] }) => {
                         return (
                             <SwiperSlide key={item.id_producto}>
                                 <div className="text-xs w-full py-2 text-center h-72 bg-white rounded-lg relative">
-                                    <img src={item.imagenes[0].url} alt="" className="object-contain h-52 w-full" />
+                                    <img src={item.imagenes?.[0]?.url} alt="" className="object-contain h-52 w-full" />
                                     <p className="line-clamp-2 mt-2 hover:text-blue-500 text-black duration-200">{item.nombre}</p>
                                     <p className="font-extralight text-lg text-left px-2">$ {parseFloat(precio).toFixed(2)}</p>
                                     <div className="absolute top-4 right-1">

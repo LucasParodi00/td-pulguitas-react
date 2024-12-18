@@ -2,9 +2,6 @@ import { Twitter } from "lucide-react"
 import { Facebook } from "lucide-react"
 import { Instagram } from "lucide-react"
 
-
-
-
 export const CardNovedades = () => {
     return (
         <div className="bg-[#DEE6E9] py-10 px-2 my-10 lg:h-[33em] flex rounded-xl">
@@ -26,7 +23,7 @@ export const CardNovedades = () => {
                         <br />
                         <p>¡Visítanos y descubre todo lo que tenemos para consentir a tu mejor amigo!</p>
                     </div>
-                    <div className="flex items-center py-2 justify-around mt-5 lg:w-1/2 m-auto">
+                    <div className="flex items-center py-2 justify-around mt-5 lg:w-1/2 m-auto w-full">
                         <a href="https://www.instagram.com" target="_blank" className="hover:text-navbar-web text-[#009999] duration-500 ">{<Instagram size={30} />}</a>
                         <a href="https://www.facebook.com" target="_blank" className="hover:text-navbar-web text-[#009999] duration-500 ">{<Facebook size={30} />}</a>
                         <a href="https://www.facebook.com" target="_blank" className="hover:text-navbar-web text-[#009999] duration-500 ">{<Twitter size={30} />}</a>

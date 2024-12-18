@@ -27,7 +27,7 @@ export const MetodosPago = () => {
 
 const MetodoPagoIndividual = ({ icono = '', texto = '', extraClass = '' }) => {
     return (
-        <div className={`grid place-content-center place-items-center border-y border-black py-3 font-extralight gap-4 px-2 h-full sm:grid-cols-3 lg:border-y-0 lg:border-x lg:grid-cols-5 lg:text-sm ${extraClass}`}>
+        <div className={`grid place-content-center place-items-center border-y border-gray-400 py-3 font-extralight gap-4 px-2 h-full sm:grid-cols-3 lg:border-y-0 lg:border-x lg:grid-cols-5 lg:text-sm ${extraClass}`}>
             <p className="text-verde-suave">{icono}</p>
             <p className="sm:col-span-2 lg:col-span-4">{texto}</p>
         </div>

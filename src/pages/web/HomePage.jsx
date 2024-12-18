@@ -12,8 +12,8 @@ import { MetodosPago } from "../../components/features/web/MetodosPago"
 import { SeccionBlogs } from "../../components/features/web/blog/SeccionBlogs"
 import { importLogos } from "../../utils/helper/importMarcas"
 
-const imagenes = ['http://localhost:5173/banner-lg-1.png', 'http://localhost:5173/banner-lg-2.png']
-const marcas = ['http://localhost:5173/marcas/1.png']
+// const imagenes = ['http://localhost:5173/banner-lg-1.png', 'http://localhost:5173/banner-lg-2.png']
+const imagenes = ['/banner-lg-1.png', '/banner-lg-2.png']
 
 export const HomePage = () => {
     const [productos, setProductos] = useState([]);
@@ -28,6 +28,7 @@ export const HomePage = () => {
     useEffect(() => {
         fetchData();
     }, [])
+
     return (
         <>
             <Carrusel

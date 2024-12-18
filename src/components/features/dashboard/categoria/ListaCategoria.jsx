@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { getCategorias } from "../../../../services/api/categoriaAPi";
 import { ActionDataTable } from "../../../common/AccionesGenericas";
 import { DataTable } from "../../../common/tables/DataTable"
 import { LayoutInternoDashboard } from "../../../layout/LayoutInternoDashboard";
 import { columnasCategory } from "../../../../utils/helper/columns";
-import { useEffect } from "react";
 import { useMemo } from "react";
 import { useFetchApi } from "../../../../hook/useFetchApi";
 

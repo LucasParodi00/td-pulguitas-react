@@ -4,9 +4,10 @@ import { Link } from "react-router-dom"
 
 
 
-export const NavbarItem = ({ nombre = 'Nombre', referencia = '#', icono = <Route /> }) => {
+export const NavbarItem = ({ nombre = 'Nombre', referencia = '#', icono = <Route />, onClose = null }) => {
     return (
         <Link
+            onClick={onClose}
             to={referencia}
             className="py-4 w-full text-w lg:px-4 lg:rounded-full text-white hover:text-orange-500 duration-500"
         >

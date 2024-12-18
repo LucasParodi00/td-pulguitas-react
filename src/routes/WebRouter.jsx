@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom"
 import { HomePage } from "../pages/web/HomePage"
 import { NavbarWeb } from "../components/layout/navbarWeb/NavbarWeb"
-import { ContainerWeb } from "../components/layout/ContainerWeb"
 import { Footer } from "../components/layout/footer/Footer"
 import { ProductosWebPage } from "../pages/web/ProductosPage"
 import { NosotrosPage } from "../pages/web/NosotrosPage"
+import { CartRouters } from "./CartRouter"
+import { CarritoPage } from "../pages/web/CarritoPage"
 
 
 
@@ -17,7 +18,14 @@ export const WebRouter = () => {
                 <Route path="/productos/*" element={<ProductosWebPage />} />
                 <Route path="/nosotros" element={<NosotrosPage />} />
                 <Route path="/inicio" element={<HomePage />} />
-                <Route path="/" element={<HomePage />} />
+                <Route path="/carrito/*" element={
+                    <CartRouters>
+                        <Routes>
+                            <Route path="/" element={<CarritoPage />} />
+                        </Routes>
+                    </CartRouters>
+                } />
+                <Route path="/*" element={<HomePage />} />
             </Routes>
             <Footer />
         </>

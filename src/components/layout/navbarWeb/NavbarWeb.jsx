@@ -3,12 +3,25 @@ import { NavbarContent } from "./NavbarContent"
 import { NavbarItem } from "./NavbarItem"
 import { Box } from "lucide-react"
 import { Building2 } from "lucide-react"
-import { MapPinHouse } from "lucide-react"
 import { Contact } from "lucide-react"
+import { LayoutDashboard } from "lucide-react"
+import { useContext } from "react"
+import { AuthContext } from "../../../auth/context/AuthContext"
 
 export const NavbarWeb = () => {
+    const { logged, user } = useContext(AuthContext);
+    const userRole = user?.id_rol;
     return (
         <NavbarContent>
+            {
+                (logged && userRole == 2)
+                    ? (<NavbarItem
+                        nombre={'Dshboard'}
+                        icono={<LayoutDashboard />}
+                        referencia="/dashboard"
+                    />)
+                    : ''
+            }
             <NavbarItem
                 nombre={'Inicio'}
                 icono={<House />}

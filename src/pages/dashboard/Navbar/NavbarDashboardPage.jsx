@@ -18,16 +18,7 @@ export const NavbarDashboardPage = () => {
                     referencia="/dashboard/productos"
                     icono={<Blocks />}
                 />
-                <ItemNavbarDashboard
-                    texto="Usuarios"
-                    referencia="/dashboard/ususario"
-                    icono={<User />}
-                />
-                <ItemNavbarDashboard
-                    texto="Ventas"
-                    referencia="/dashboard/ventas"
-                    icono={<BadgeDollarSign />}
-                />
+
                 <ItemNavbarDashboard
                     texto="Categorias"
                     referencia="/dashboard/categorias"
@@ -37,6 +28,11 @@ export const NavbarDashboardPage = () => {
                     texto="Mascotas"
                     referencia="/dashboard/mascotas"
                     icono={<PawPrint />}
+                />
+                <ItemNavbarDashboard
+                    texto="WEB"
+                    referencia="/"
+                    icono={<User />}
                 />
             </div>
         </NavbarDashboard>

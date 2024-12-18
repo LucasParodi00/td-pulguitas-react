@@ -3,14 +3,18 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useFetchApi } from "../../../../hook/useFetchApi";
 import { useEffect } from "react";
 import { Spinner } from "../../../common/spinner/Spinner";
-import { Share2 } from "lucide-react";
 import { Carrusel } from "../../../common/Carrusel";
+import { BtnSecondary } from "../../../common/button/BtnSecundary";
+import { useContext } from "react";
+import { AuthContext } from "../../../../auth/context/AuthContext";
 
 
 export const VerProductoWeb = () => {
     const [producto, setProducto] = useState();
     const [loading, setLoading] = useState(true);
     const [selectedPresentation, setSelectedPresentation] = useState(null);
+
+    const { addCart } = useContext(AuthContext);
 
     const { fetchDatas } = useFetchApi('producto');
     const { id } = useParams();
@@ -55,7 +59,7 @@ export const VerProductoWeb = () => {
                         imagenes={imagenes}
                     />
                 </div>
-                <div className="w-full">
+                <div className="w-full ">
                     <div className="flex gap-5 lg:mt-10">
                         <span className="bg-verde-menta p-2 block rounded-md">{producto.categoria}</span>
                         {
@@ -64,7 +68,7 @@ export const VerProductoWeb = () => {
                             ))
                         }
                     </div>
-                    <div className="p-1">
+                    <div className="p-1 ">
                         <p className="mb-1">Presentaciones: </p>
                         <div className="flex gap-2 w-full justify-center items-center lg:justify-start">
                             {
@@ -93,13 +97,22 @@ export const VerProductoWeb = () => {
                     </div>
                     {/* Redes sociales */}
                     <div className="py-2">
-                        <button className="bg-verde-suave p-2 rounded-full flex justify-center items-center gap-3 hover:bg-verde-menta  hover:text-white duration-700 ">
-                            <Share2 size={30} />
-                            Compartir
-                        </button>
-                        <div>
+                        <div className="mt-3 flex items-center gap-5">
 
+                            <BtnSecondary
+                                texto="Agregar al carrito"
+                                onClick={() => addCart(
+                                    {
+                                        id_producto: selectedPresentation.id_presentacion,
+                                        nombre: producto.nombre,
+                                        imagenes: producto.imagenes,
+                                        monto: selectedPresentation.precio_compra,
+                                        porcentaje_aumento: selectedPresentation.porcentaje_aumento
+                                    }
+                                )}
+                            />
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Autoplay } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { useLocation } from 'react-router-dom';
 
 import 'swiper/css';
 
@@ -23,23 +24,17 @@ export const CarruselInfinito = ({
     },
     className = ''
 }) => {
-    const swiperRef = useRef(null);
+    const location = useLocation();
+    const [key, setKey] = useState(0);
 
     useEffect(() => {
-        const swiperInstance = swiperRef.current?.swiper;
-
-        if (swiperInstance) {
-            swiperInstance.autoplay.stop();
-            swiperInstance.autoplay.start();
-
-            swiperInstance.slideTo(0);
-        }
-    }, [sliders]);
+        setKey(prevKey => prevKey + 1);
+    }, [location.pathname, sliders]);
 
     return (
         <div className={`w-full ${className}`}>
             <Swiper
-                ref={swiperRef}
+                key={key}
                 modules={[Autoplay]}
                 slidesPerView={slidesPerView}
                 centeredSlides={centeredSlides}
@@ -52,9 +47,6 @@ export const CarruselInfinito = ({
                 loop={true}
                 spaceBetween={spaceBetween}
                 breakpoints={breakpoints}
-                onSwiper={(swiper) => {
-                    swiperRef.current = swiper;
-                }}
             >
                 {sliders.map((logo, index) => (
                     <SwiperSlide key={`${logo}-${index}`}>
@@ -72,4 +64,3 @@ export const CarruselInfinito = ({
         </div>
     )
 }
-

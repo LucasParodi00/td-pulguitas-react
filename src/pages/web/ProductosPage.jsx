@@ -31,7 +31,7 @@ export const ProductosWebPage = () => {
                         id: item.id_producto,
                         nombre: item.nombre,
                         presentaciones: item.presentaciones,
-                        imagen: item.imagenes[0].url
+                        imagen: item.imagenes?.[0]?.url
                     }
                 )
             })
@@ -63,7 +63,7 @@ export const ProductosWebPage = () => {
     return (
         <div>
             <ContainerWeb>
-                <div className="grid grid-cols-12 gap-5 ">
+                <div className="lg:grid grid-cols-12 gap-5  ">
                     <div className="col-span-2 relative">
                         <SectionFiltterProducts
                             onFilterChange={handleFiltter}
